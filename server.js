@@ -26,7 +26,7 @@ mongoose
 
 // API Endpoints
 app.get("/", (request, response) => {
-  response.status(200).send("Hello");
+  response.status(200).send("Hello API");
 });
 
 app.post("/tinder/cards", (request, response) => {
