@@ -51,12 +51,3 @@ app.get("/tinder/cards", (request, response) => {
     }
   });
 });
-
-app.delete("/tinder/cards/:id", (request, response) => {
-  const id = request.params.id;
-  Cards.findByIdAndDelete(id)
-    .then((result) => {
-      response.status(200).send(data);
-    })
-    .catch((error) => console.log(error));
-});
