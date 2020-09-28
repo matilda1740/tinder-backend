@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import Cards from "./dbCards.js";
+import path from "path";
 
 // App Config
 
@@ -13,6 +14,8 @@ const db =
 // Middlewares
 app.use(express.json());
 app.use(cors());
+
+// app.use(express.static(path.join(__dirname, 'build')));
 
 // DB Config
 mongoose
@@ -28,6 +31,10 @@ mongoose
 app.get("/", (request, response) => {
   response.status(200).send("Hello API");
 });
+
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'))
+// })
 
 app.post("/tinder/cards", (request, response) => {
   const dbCard = request.body;
